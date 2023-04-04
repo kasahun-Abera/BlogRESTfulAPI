@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Broadcast;
-
+use App\Events\ArticlePublished;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -15,4 +15,11 @@ use Illuminate\Support\Facades\Broadcast;
 
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
+});
+Broadcast::channel('article-published', function () {
+    return true;
+});
+
+Broadcast::listen(ArticlePublished::class, function ($event) {
+    return new \Illuminate\Broadcasting\PrivateChannel('article-published');
 });
