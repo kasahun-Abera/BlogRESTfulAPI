@@ -7,7 +7,7 @@ Follow these steps to get this project live
 ```
 git clone https://github.com/kasahun-Abera/BlogRESTfulAPI.git
 cd BlogRESTfulAPI
-composer install
+composer update
 
 ```
 ## Configure your .env file
