@@ -41,7 +41,7 @@ class ArticleController extends Controller
         }
 
         $article->tags()->sync($request->tags);
-
+        $article->publish();
         return response()->json($article, 201);
     }
 
@@ -78,6 +78,7 @@ class ArticleController extends Controller
         }
 
         $article->tags()->sync($request->tags);
+        $article->publish();
         return response()->json($article);
     }
 
